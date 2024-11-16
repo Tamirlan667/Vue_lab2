@@ -1,0 +1,19 @@
+{
+    "_id": "672a48aaf969b65d420cdd06",
+    "id": 1,
+    "name": "Mark",
+    "surname": "Twen",
+    "username": "MarkTwen",
+    "password": "123",
+    "age": 45,
+    "avatarPath": "profile_man_1.png",
+    "location": "Missouri, USA",
+    "activity": "2024-09-13T05:00:00.000+00:00",
+    "followersId": [],
+    "friendsId": [],
+    "postsId": [1, 2, 3],
+    "chatsId": [],
+    "rating": 3.7,
+    "__v": 0
+  }
+  
