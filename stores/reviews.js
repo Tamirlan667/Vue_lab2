@@ -8,7 +8,7 @@ export const blogReviews = defineStore("reviews", () => {
       id: 1,
       name: "Mark",
       surname: "Twen",
-      date: now,
+      date: new Date("2024-07-12T18:30:00"),
       avatar: "profile_man_1.png",
       rating: 4.5,
       text: "This is awesome adventure that I had! Thanks!",
@@ -32,7 +32,7 @@ export const blogReviews = defineStore("reviews", () => {
       id: 3,
       name: "Milla",
       surname: "Loren",
-      date: new Date("2024-09-12T12:10:00"),
+      date: new Date("2024-08-12T12:10:00"),
       avatar: "profile_man_2.png",
       rating: 4.0,
       text: "The place is very big. Like, really!",
@@ -253,7 +253,7 @@ export const blogReviews = defineStore("reviews", () => {
     reviews.value = updatedReviews;
   }
 
-  function deleteReview(id){
+  function deleteReview(id) {
     const updatedReviews = reviews.value.filter((review) => review.id !== id);
 
     setReviews(updatedReviews);
@@ -280,6 +280,20 @@ export const blogReviews = defineStore("reviews", () => {
     return reviews.value.filter((review) => user.postsId.includes(review.id));
   };
 
+  function updateReviewerName({ userId, newName, newSurname }) {
+    reviews.value = reviews.value.map((review) => {
+      if (review.id === userId) {
+        console.log("Updating review:", review.id, newName); // Логирование для проверки
+        return {
+          ...review,
+          name: newName || review.name,
+          surname: "" || "",
+        };
+      }
+      return review;
+    });
+  }
+
   return {
     reviews,
     sortedReviews,
@@ -289,6 +303,7 @@ export const blogReviews = defineStore("reviews", () => {
     setDescending,
     setReviews,
     filteredByUser,
-    deleteReview
+    deleteReview,
+    updateReviewerName,
   };
 });

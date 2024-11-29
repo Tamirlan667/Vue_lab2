@@ -1,1 +1,41 @@
-@import './base.css';
+@import "./base.css";
+@tailwind base;
+@tailwind components;
+@layer components {
+  .litepie-datepicker {
+    @apply border-2 border-green-500 rounded-lg p-2 transition-all ease-in-out;
+  }
+
+  /* Стили для выбранного дня */
+  .litepie-datepicker .selected-day {
+    @apply bg-green-500 text-white rounded-full;
+  }
+
+  /* Стили для диапазона выбранных дат */
+  .litepie-datepicker .selected-range {
+    @apply bg-green-100 text-green-500;
+  }
+
+  /* Стиль для текущего дня */
+  .litepie-datepicker .today {
+    @apply border-2 border-orange-500 font-bold text-orange-500;
+  }
+
+  /* Анимация при клике на выбранную дату */
+  .litepie-datepicker .selected-day:active {
+    @apply scale-95 bg-green-700;
+  }
+
+  /* Анимация для диапазона */
+  .litepie-datepicker .selected-range:active {
+    @apply bg-green-300 text-green-700;
+  }
+
+  /* Анимация при клике на текущий день */
+  .litepie-datepicker .today:active {
+    @apply scale-95 text-orange-700 border-orange-700;
+  }
+}
+
+/* Дополнительные стили */
+@tailwind utilities;
